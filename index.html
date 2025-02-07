@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/1d9765704f.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Teaching with the Library</title>
+</head>
+<body>
+    <h1>Teaching with the Library</h1>
+    <section>
+    <p>The Library's instruction program empowers students to think critically about the information that they encounter and create, and to find personal fulfillment in their research journeys. We collaborate with faculty, administrators, and the community to provide student-centered workshops and teaching materials tailored to individual courses and programs. </p>
+    <button class="request-btn">Request Library Instruction</button>
+    </section>
+    
+<section>
+    <div id="card-display"></div>
+</section>
+
+<section>
+    <h2>Tips for Successful Instruction</h2>
+    <ul>
+        <li>Schedule the session about 2 to 3 weeks before your research assignment is due.</li>
+        <li>Ensure that students are familiar with their research assignment before the session.</li>
+        <li>Attend the session with your students in order to provide important disciplinary context and to support their learning.</li>
+    </ul>
+    <button class="request-btn">Request Library Instruction</button>
+</section>
+<section>
+    <h2>Digital Resources</h2>
+    <ul>
+        <li><a href="https://academicworks.cuny.edu/qc_oers/" target="_blank">Open Education Resources</a></li>
+        <li><a href="https://qc-cuny.libguides.com/" target="_blank">Research Guides</a></li>
+        <li><a href="https://qc-cuny.libguides.com/quick-start/cite" target="_blank">Citation Styles</a></li>
+    </ul>
+</section>
+<section>
+    <h2>Instructional Software</h2>
+    <p>Our computer lab RO227 offers the following software:</p>
+    <ul>
+        <li>Adobe Creative Cloud</li>
+        <li>Inkscape</li>
+        <li>JAWS</li>
+        <li>Maxon</li>
+        <li>Microsoft Office</li>
+        <li>Python</li>
+        <li>R</li>
+        <li>SPSS</li>
+        <li>STATA</li>
+        <li>Tableau</li>
+        <li>Visual Studio Code</li>
+        <li>Wolfram Mathematica</li>
+        <li>ZoomText</li>
+    </ul>
+</section>
+<section>
+    <p>Questions? Contact Andre Rollins, Instructional Services Department, at andre.rollins@qc.cuny.edu</p>
+</section>
+</body>
+</html>
+
+<script>
+const instructionTypes = {
+    "research-workshops": {
+        name: "Research Workshops",
+        summary: "Students learn discipline-specific resources and methods to support creative and scholarly projects.",
+        linkText: "Learn more >",
+        link: "research-workshops.html",
+        icon: "fa-solid fa-chalkboard-user"
+    },
+    "fyw": {
+        name: "First Year Writing",
+        summary: "Workshops and lesson resources in support of the First Year Writing Program (ENGL 110).",
+        linkText: "Learn more >",
+        link: "https://qclibraryinstruction.commons.gc.cuny.edu/",
+        icon: "fa-solid fa-pen-to-square"
+    },
+    "data-analysis": {
+        name: "Data Analysis",
+        summary: "Students learn to find, analyze, and visualize data with popular analytics tools.",
+        linkText: "Learn more >",
+        link: "https://qc-cuny.libguides.com/data-services",
+        icon: "fa-solid fa-square-binary"
+    },
+    "makerspace": {
+        name: "Makerspace",
+        summary: "Students engage in hands-on learning, design, and creation using a variety of tools and technologies.",
+        linkText: "Learn more >",
+        link: "https://library.qc.cuny.edu/makerspace/",
+        icon: "fa-solid fa-gear"
+    },
+    "sca": {
+        name: "Special Collections",
+        summary: "Enrich courses with the library's rare and unique primary source collections.",
+        linkText: "Learn more >",
+        link: "https://library.qc.cuny.edu/archives/",
+        icon: "fa-solid fa-landmark-dome"
+    },
+    "tutorials": {
+        name: "Library Tutorials",
+        summary: "Asynchronous modules on key research skills. Assign individually or via Brightspace.",
+        linkText: "Learn more >",
+        link: "https://qc-cuny.libguides.com/quick-start",
+        icon: "fa-solid fa-map"
+    },
+}
+
+const cardDisplay = document.getElementById('card-display');
+
+for (const type in instructionTypes) {
+  const instruction = instructionTypes[type];
+
+  // Create card elements
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+  const cardIcon = document.createElement('i')
+  cardIcon.classList.add(...instruction.icon.split(" "));
+
+  const cardTitle = document.createElement('h3');
+  cardTitle.textContent = instruction.name;
+
+  const cardSummary = document.createElement('p');
+  cardSummary.textContent = instruction.summary;
+
+  const cardLink = document.createElement('a');
+  cardLink.href = instruction.link;
+  cardLink.textContent = instruction.linkText;
+  cardLink.target = "_blank";
+
+  // Append elements to the card
+  card.appendChild(cardIcon);
+  card.appendChild(cardTitle);
+  card.appendChild(cardSummary);
+  card.appendChild(cardLink);
+
+  // Append the card to the display area
+  cardDisplay.appendChild(card);
+}
+
+</script>
